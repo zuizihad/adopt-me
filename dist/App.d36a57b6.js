@@ -28291,7 +28291,7 @@ if ("development" === 'production') {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Pet = void 0;
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -28301,38 +28301,62 @@ var Pet = function Pet(_ref) {
   var name = _ref.name,
       animal = _ref.animal,
       breed = _ref.breed;
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, name), _react.default.createElement("h2", {}, animal), _react.default.createElement("h2", {}, breed)]);
+  //   return React.createElement("div", {}, [
+  //     React.createElement("h1", {}, name),
+  //     React.createElement("h2", {}, animal),
+  //     React.createElement("h2", {}, breed),
+  //   ]);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, name), /*#__PURE__*/_react.default.createElement("h2", null, animal), /*#__PURE__*/_react.default.createElement("h2", null, breed));
 };
 
-exports.Pet = Pet;
+var _default = Pet;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
+var _reactDom = require("react-dom");
 
 var _Pet = _interopRequireDefault(require("./Pet"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, "Adopt Me!"), _react.default.createElement(_Pet.default, {
+  // return React.createElement("div", {}, [
+  //   React.createElement("h1", {}, "Adopt Me!"),
+  //   React.createElement(Pet, {
+  //     name: "Luna",
+  //     animal: "Dog",
+  //     breed: "Harvanese",
+  //   }),
+  //   React.createElement(Pet, {
+  //     name: "Papper",
+  //     animal: "Bird",
+  //     breed: "Cocktail",
+  //   }),
+  //   React.createElement(Pet, {
+  //     name: "Doink",
+  //     animal: "Cat",
+  //     breed: "Mixed",
+  //   }),
+  // ]);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Adopt Me!"), /*#__PURE__*/_react.default.createElement(_Pet.default, {
     name: "Luna",
     animal: "Dog",
-    breed: "Harvanese"
-  }), _react.default.createElement(_Pet.default, {
-    name: "Papper",
+    breed: "Havanese"
+  }), /*#__PURE__*/_react.default.createElement(_Pet.default, {
+    name: "Pepper",
     animal: "Bird",
-    breed: "Cocktail"
-  }), _react.default.createElement(_Pet.default, {
+    breed: "Cocktaiel"
+  }), /*#__PURE__*/_react.default.createElement(_Pet.default, {
     name: "Doink",
     animal: "Cat",
     breed: "Mixed"
-  })]);
+  }));
 };
 
-_reactDom.default.render(_react.default.createElement(App), document.getElementById("root"));
+(0, _reactDom.render)( /*#__PURE__*/_react.default.createElement(App, null), document.getElementById("root"));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Pet":"Pet.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
