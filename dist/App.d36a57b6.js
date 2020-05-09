@@ -30088,19 +30088,30 @@ var SearchParams = function SearchParams() {
       breeds = _useState4[0],
       setBreeds = _useState4[1];
 
-  var _useDropdown = (0, _useDropdown5.default)("Animal", "Dog", _pet.ANIMALS),
+  var _useDropdown = (0, _useDropdown5.default)("Animal", "dog", _pet.ANIMALS),
       _useDropdown2 = _slicedToArray(_useDropdown, 2),
       animal = _useDropdown2[0],
       AnimalDropdown = _useDropdown2[1];
 
   var _useDropdown3 = (0, _useDropdown5.default)("Breed", "", breeds),
-      _useDropdown4 = _slicedToArray(_useDropdown3, 2),
+      _useDropdown4 = _slicedToArray(_useDropdown3, 3),
       breed = _useDropdown4[0],
-      BreedDropdown = _useDropdown4[1];
+      BreedDropdown = _useDropdown4[1],
+      setBreed = _useDropdown4[2];
 
   (0, _react.useEffect)(function () {
-    _pet.default.breeds("dog").then(console.log, console.error);
-  });
+    setBreeds([]);
+    setBreed("");
+
+    _pet.default.breeds(animal).then(function (_ref) {
+      var breeds = _ref.breeds;
+      var breedString = breeds.map(function (_ref2) {
+        var name = _ref2.name;
+        return name;
+      });
+      setBreeds(breedString);
+    });
+  }, [animal, setBreed, setBreeds]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "search-params"
   }, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
