@@ -32657,6 +32657,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _router = require("@reach/router");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Pet = ({
@@ -32673,8 +32675,8 @@ const Pet = ({
     hero = media[0].small;
   }
 
-  return /*#__PURE__*/_react.default.createElement("a", {
-    href: `/details/${id}`,
+  return /*#__PURE__*/_react.default.createElement(_router.Link, {
+    to: `/details/${id}`,
     className: "pet"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "image-container"
@@ -32688,7 +32690,7 @@ const Pet = ({
 
 var _default = Pet;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"Results.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"Results.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32767,7 +32769,7 @@ const SearchParams = () => {
   const [animal, AnimalDropdown] = (0, _useDropdown.default)("Animal", "dog", _pet.ANIMALS);
   const [breed, BreedDropdown, setBreed] = (0, _useDropdown.default)("Breed", "", breeds);
   const [pets, setPets] = (0, _react.useState)([]);
-  const [theme] = (0, _react.useContext)(_ThemeContext.default);
+  const [theme, setTheme] = (0, _react.useContext)(_ThemeContext.default);
 
   async function requestPets() {
     const {
@@ -32807,7 +32809,21 @@ const SearchParams = () => {
     value: location,
     placeholder: "Location",
     onChange: event => setLocation(event.target.value)
-  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement(AnimalDropdown, null), /*#__PURE__*/_react.default.createElement(BreedDropdown, null), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "theme"
+  }, "Theme", /*#__PURE__*/_react.default.createElement("select", {
+    value: theme,
+    onChange: e => setTheme(e.target.value),
+    onBlur: e => setTheme(e.target.value)
+  }, /*#__PURE__*/_react.default.createElement("option", {
+    value: "peru"
+  }, "Peru"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "darkblue"
+  }, "Darkblue"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "mediumorchid"
+  }, "Mediumorchid"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "chartreuse"
+  }, "Chartreuse"))), /*#__PURE__*/_react.default.createElement("button", {
     style: {
       backgroundColor: theme
     }
